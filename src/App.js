@@ -8,7 +8,8 @@
 
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk'
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import firebase from 'firebase';
 import reducers from './reducers';
@@ -36,8 +37,9 @@ export default class App extends Component<Props> {
     firebase.initializeApp(config);
   }
   render() {
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
-      <Provider store={createStore(reducers)}>
+      <Provider store={store}>
         <LoginFrom />
       </ Provider>
     );
