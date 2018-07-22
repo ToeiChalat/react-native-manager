@@ -12,6 +12,7 @@ import { createStore } from 'redux';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import firebase from 'firebase';
 import reducers from './reducers';
+import LoginFrom from './components/LoginFrom';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -37,11 +38,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Provider store={createStore(reducers)}>
-        <View style={styles.container}>
-          <Text style={styles.welcome}>Welcome to React Native!</Text>
-          <Text style={styles.instructions}>To get started, edit App.js</Text>
-          <Text style={styles.instructions}>{instructions}</Text>
-        </View>
+        <LoginFrom />
       </ Provider>
     );
   }
