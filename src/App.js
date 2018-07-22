@@ -13,14 +13,8 @@ import ReduxThunk from 'redux-thunk'
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import firebase from 'firebase';
 import reducers from './reducers';
-import LoginFrom from './components/LoginFrom';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import LoginForm from './components/LoginForm';
+import Router from './Router';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -40,8 +34,8 @@ export default class App extends Component<Props> {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
       <Provider store={store}>
-        <LoginFrom />
-      </ Provider>
+        <Router />
+      </Provider>
     );
   }
 }

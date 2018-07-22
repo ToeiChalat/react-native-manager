@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
-class LoginFrom extends Component {
+class LoginForm extends Component {
 
   onEmailChange(text) {
     this.props.emailChanged(text);
@@ -94,4 +94,4 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   emailChanged, passwordChanged, loginUser
-})(LoginFrom);
+})(LoginForm);
