@@ -4,7 +4,7 @@ import { View } from 'react-native';
 const CardSection = (props) => {
   const { children } = props;
   return (
-    <View style={styles.containerStyle}>
+    <View style={[styles.containerStyle, props.style]}>
       {children}
     </View>
   );
